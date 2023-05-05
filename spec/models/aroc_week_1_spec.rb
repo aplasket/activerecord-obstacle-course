@@ -11,17 +11,18 @@ describe 'ActiveRecord Obstacle Course, Week 1' do
 # ----------------------
 
 ## How to complete these exercises: 
-# Currently, these tests are passing becasue we're using Ruby to do it. Re-write the Ruby solutions using ActiveRecord. 
+# Currently, these tests are passing because we're using Ruby to do it. Re-write the Ruby solutions using ActiveRecord. 
 # You can comment out the Ruby example after your AR is working. 
 
   it '1. finds orders by amount' do
     # ----------------------- Using Ruby -------------------------
-    orders_of_500 = Order.all.select { |order| order.amount == 500 }
-    orders_of_200 = Order.all.select { |order| order.amount == 200 }
+    # orders_of_500 = Order.all.select { |order| order.amount == 500 }
+    # orders_of_200 = Order.all.select { |order| order.amount == 200 }
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-    # Solution goes here
+      orders_of_500 = Order.where('amount = 500')
+      orders_of_200 = Order.where('amount = 200')
     # ------------------------------------------------------------
 
     # Expectation
