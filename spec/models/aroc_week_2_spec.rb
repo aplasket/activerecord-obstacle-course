@@ -19,8 +19,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-      # orders_of_user_3 = Order.where(user_id: @user_3.id)
-      orders_of_user_3 = @user_3.orders
+      orders_of_user_3 = Order.where(user_id: @user_3)
     # ------------------------------------------------------------
 
     # Expectation
@@ -39,7 +38,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-      orders = Order.order(amount: :desc)
+    orders = Order.order(amount: :desc)
     # ------------------------------------------------------------
 
     # Expectation
@@ -78,10 +77,6 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
 
     # ------------------ Using ActiveRecord ----------------------
       items = Item.where.not(id: items_not_included)
-
-      #alternative methods:
-        # items = Item.where.not(id: items_not_included.map(&:id)
-        # items = Item.where.not(id: items_not_included.map{|item| item.id}) ^^ same as (&:id)
     # ------------------------------------------------------------
 
     # Expectation
@@ -97,7 +92,7 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     # ------------------------------------------------------------
 
     # ------------------ Using ActiveRecord ----------------------
-      grouped_items = @order_3.items.order(:name)
+    grouped_items = @order_3.items.order(:name)
     # ------------------------------------------------------------
 
     # Expectation
@@ -147,9 +142,8 @@ describe 'ActiveRecord Obstacle Course, Week 2' do
     
     # names = names.flatten
     # ------------------------------------------------------------
-
     # ------------------ Using ActiveRecord ----------------------
-      names = Order.joins(:items).pluck(:name)
+    names = Order.joins(:items).pluck(:name)
 
       #SELECT items.name FROM orders
         # INNER JOIN order_items
